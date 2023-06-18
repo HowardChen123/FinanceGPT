@@ -1,1 +1,1 @@
-# FinanceGPT
+#  LLM for Sentimental Analysis
