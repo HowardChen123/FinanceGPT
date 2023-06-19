@@ -14,6 +14,8 @@ Sentiment analysis plays a crucial role in understanding public opinion and mark
 
 ### Dataset Description
 
+The datasets for this project will consist of a diverse collection of news articles and tweets related to the financial markets. The dataset will cover a wide range of stocks, sectors, and market events, ensuring a representative sample. They are annotated with sentiment labels, such as positive, negative, or neutral, to facilitate supervised training of Alpaca Lora.
+
 #### News
 
 1. [Stock News Sentiment Analysis(Massive Dataset)](https://www.kaggle.com/datasets/avisheksood/stock-news-sentiment-analysismassive-dataset)
