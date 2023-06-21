@@ -29,12 +29,8 @@ The datasets for this project will consist of a diverse collection of news artic
 1. [Bitcoin tweets - 16M tweets With Sentiment Tagged](https://www.kaggle.com/datasets/gauravduttakiit/bitcoin-tweets-16m-tweets-with-sentiment-tagged)
     - Sampled 40% of dataset
     - Saved at "data/raw_datasets/tweets/mbsa_sample.csv"
-    
 
-2. [Stock Market Tweet | Sentiment Analysis lexicon](https://www.kaggle.com/datasets/utkarshxy/stock-markettweets-lexicon-data)
-    - Saved at "data/raw_datasets/tweets/tweets_labelled.csv"
-
-3. [Stock Sentiment](https://www.kaggle.com/datasets/purvitsharma/stock-sentiment)
+2. [Stock Sentiment](https://www.kaggle.com/datasets/purvitsharma/stock-sentiment)
     - Saved at "data/raw_datasets/tweets/stock_sentiment.csv"
 
 ### Challenges
