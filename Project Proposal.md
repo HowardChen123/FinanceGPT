@@ -4,7 +4,7 @@ Sentiment analysis plays a crucial role in understanding public opinion and mark
 
 ### Deliverables
 
-1. **Large Language Model**: Develop a state-of-the-art language model capable of sentiment analysis for news articles and tweets related to the stock markets. The chosen algorithm is Alpaca Lora, which is a LLM designed to be lightweight and efficient, making it suitable for running on local laptops without requiring substantial computational resources. Alpaca Lora will be fine-tuned and optimized for exceptional accuracy, speed, and scalability, ensuring reliable sentiment analysis results.
+1. **Large Language Model**: Develop a state-of-the-art language model capable of sentiment analysis for news articles and tweets related to the stock markets. The chosen algorithm is LLaMA 7B, and it will be fine-tuned for sentimental analysis with low-rank adaption, greatly reducing the number of trainable parameters for the task. The model will be fine-tuned and optimized for exceptional accuracy, speed, and scalability, ensuring reliable sentiment analysis results.
 
 2. **API and User Interface**: Build a user-friendly API and web-based interface that allows users to input text (news articles or tweets) and receive sentiment analysis results in real-time. The interface should provide visualizations and summary statistics to facilitate easy interpretation of the sentiment analysis.
 
@@ -14,7 +14,7 @@ Sentiment analysis plays a crucial role in understanding public opinion and mark
 
 ### Dataset Description
 
-The datasets for this project will consist of a diverse collection of news articles and tweets related to the financial markets. The dataset will cover a wide range of stocks, sectors, and market events, ensuring a representative sample. They are annotated with sentiment labels, such as positive, negative, or neutral, to facilitate supervised training of Alpaca Lora.
+The datasets for this project will consist of a diverse collection of news articles and tweets related to the financial markets. The dataset will cover a wide range of stocks, sectors, and market events, ensuring a representative sample. They are annotated with sentiment labels, such as positive, negative, or neutral, to facilitate supervised training of the large language model.
 
 #### News
 
@@ -38,3 +38,6 @@ The datasets for this project will consist of a diverse collection of news artic
 ### Reference
 
 1. [Introduction to Git LFS (Large File Storage)](https://www.youtube.com/watch?v=xPFLAAhuGy0&ab_channel=DanGitschooldude)
+2. [PEFT: Parameter-Efficient Fine-Tuning of Billion-Scale Models on Low-Resource Hardware](https://huggingface.co/blog/peft)
+3. [Alpaca: A Strong, Replicable Instruction-Following Model](https://crfm.stanford.edu/2023/03/13/alpaca.html)
+4. [LLaMA-7B](https://huggingface.co/decapoda-research/llama-7b-hf)
