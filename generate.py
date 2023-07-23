@@ -65,7 +65,7 @@ def generate_response(input: str,):
     )
 
     with torch.no_grad():
-        generation_output = model.generate(
+        generation_output = llm_model.generate(
             input_ids=input_ids,
             generation_config=generation_config,
             return_dict_in_generate=True,
