@@ -1,21 +1,22 @@
 from typing import Union
+import json
 
-class Prompter(object):
+class Prompter:
+
+    def __init__(self):
+        with open("utils/template.json") as fp:
+            self.template = json.load(fp)
 
     def generate_prompt(
         self,
         instruction: str,
         input: Union[None, str] = None,
-        label: Union[None, str] = None,
     ) -> str:
-        return f"""Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.
-                    ### Instruction:
-                    {instruction}
-                    ### Input:
-                    {input}
-                    ### Response:
-                    {label}
-                """
+        res = self.template["prompt_input"].format(
+                instruction=instruction, input=input
+            )
+        return res
 
     def get_response(self, output: str) -> str:
-        return 
+        return output.split(self.template["response_split"])[1].strip()
+

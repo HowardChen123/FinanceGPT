@@ -13,7 +13,7 @@ from peft import LoraConfig, get_peft_model, get_peft_model_state_dict, prepare_
 
 class Configuration:
     # Model configuration
-    MODEL_PATH = 'openlm-research/open_llama_3b'
+    MODEL_PATH = 'decapoda-research/llama-7b-hf'
     LORA_R = 8
     LORA_ALPHA = 16
     LORA_DROPOUT = 0.05
@@ -26,7 +26,6 @@ class Configuration:
     LEARNING_RATE = 3e-4
     TRAIN_STEPS = 300
     OUTPUT_DIR = "experiments"
-    CUTOFF_LEN = 256
 
 def setup_device():
     return "cuda" if torch.cuda.is_available() else "cpu"
@@ -40,19 +39,14 @@ def setup_model(model_path):
     tokenizer.padding_side = "left"
     return model, tokenizer
 
-def tokenize_prompt(tokenizer, prompt, add_eos_token=True):
+def tokenize_prompt(tokenizer, prompt):
     result = tokenizer(
         prompt,
         truncation=True,
-        max_length=Configuration.CUTOFF_LEN,
         padding=False,
         return_tensors=None,
     )
-    if (
-        result["input_ids"][-1] != tokenizer.eos_token_id
-        and len(result["input_ids"]) < Configuration.CUTOFF_LEN
-        and add_eos_token
-    ):
+    if result["input_ids"][-1] != tokenizer.eos_token_id:
         result["input_ids"].append(tokenizer.eos_token_id)
         result["attention_mask"].append(1)
 
