@@ -1,6 +1,7 @@
 import torch
 from peft import PeftModel
 from transformers import LlamaForCausalLM, LlamaTokenizer, GenerationConfig
+import logging
 
 from utils.prompter import Prompter
 
@@ -46,7 +47,7 @@ def load_model(
 
     return model, tokenizer
 
-
+logging.info("Loading model from Hugging Face")
 llm_model, tokenizer = load_model()
 prompter = Prompter()
 
