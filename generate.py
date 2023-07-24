@@ -52,7 +52,7 @@ llm_model, tokenizer = load_model()
 prompter = Prompter()
 
 
-def generate_response(input: str,):
+def generate_response(input: str):
 
     instruction = "Detect the sentiment of the tweet."
     prompt = prompter.generate_prompt(instruction, input)
