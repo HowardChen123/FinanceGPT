@@ -25,7 +25,8 @@ class Configuration:
     GRADIENT_ACCUMULATION_STEPS = BATCH_SIZE // MICRO_BATCH_SIZE
     LEARNING_RATE = 3e-4
     TRAIN_STEPS = 300
-    OUTPUT_DIR = "experiments"
+    OUTPUT_DIR = "experiments",
+    CUTOFF_LEN = 256,
 
 def setup_device():
     return "cuda" if torch.cuda.is_available() else "cpu"
@@ -46,7 +47,10 @@ def tokenize_prompt(tokenizer, prompt):
         padding=False,
         return_tensors=None,
     )
-    if result["input_ids"][-1] != tokenizer.eos_token_id:
+    if (
+        result["input_ids"][-1] != tokenizer.eos_token_id
+        and len(result["input_ids"]) < Configuration.CUTOFF_LEN
+    ):
         result["input_ids"].append(tokenizer.eos_token_id)
         result["attention_mask"].append(1)
 

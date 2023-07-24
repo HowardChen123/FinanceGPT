@@ -1,7 +1,6 @@
 import torch
 from peft import PeftModel
 from transformers import LlamaForCausalLM, LlamaTokenizer, GenerationConfig
-import logging
 
 from utils.prompter import Prompter
 
@@ -47,7 +46,7 @@ def load_model(
 
     return model, tokenizer
 
-logging.info("Loading model from Hugging Face")
+print("Loading Model from Hugging Face")
 llm_model, tokenizer = load_model()
 prompter = Prompter()
 
@@ -71,6 +70,7 @@ def generate_response(input: str):
             generation_config=generation_config,
             return_dict_in_generate=True,
             output_scores=True,
+            max_new_tokens=128
         )
     
     s = generation_output.sequences[0]

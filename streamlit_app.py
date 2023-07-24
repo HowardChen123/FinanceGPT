@@ -1,5 +1,5 @@
 import streamlit as st
-from generate import generate_response
+# from generate import generate_response
 
 # App title
 st.set_page_config(page_title="LLaMA Sentiment Analysis")
@@ -29,7 +29,8 @@ if prompt := st.chat_input():
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            response = generate_response(prompt)
+            # response = generate_response(prompt)
+            response = prompt
             placeholder = st.empty()
             full_response = ''
             for item in response:

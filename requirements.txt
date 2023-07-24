@@ -6,3 +6,5 @@ git+https://github.com/huggingface/peft.git
 git+https://github.com/huggingface/transformers.git
 torch
 streamlit
+watchdog
+SentencePiece
