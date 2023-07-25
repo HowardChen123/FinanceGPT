@@ -11,6 +11,8 @@ from transformers import (
 from datasets import load_dataset
 from peft import LoraConfig, get_peft_model, get_peft_model_state_dict, prepare_model_for_int8_training
 
+from huggingface_hub import notebook_login
+
 class Configuration:
     # Model configuration
     MODEL_PATH = 'decapoda-research/llama-7b-hf'
@@ -154,6 +156,9 @@ def main():
     # Save model if training was successful
     if trainer.is_world_process_zero():
         model.save_pretrained(Configuration.OUTPUT_DIR)
+
+    notebook_login()
+    model.push_to_hub("howardchen123/alpaca-lora-llama-sentiment", use_auth_token=True)
 
 if __name__ == "__main__":
     main()
