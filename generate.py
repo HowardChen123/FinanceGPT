@@ -12,13 +12,13 @@ else:
 
 def load_model(
     base_model: str = "decapoda-research/llama-7b-hf",
-    lora_weights: str = "howardchen123/alpaca-lora-llama-sentiment"
+    lora_weights: str = 'howardchen123/alpaca-lora-llama-sentiment'
 ):
     tokenizer = LlamaTokenizer.from_pretrained(base_model)
     if device == "cuda":
         model = LlamaForCausalLM.from_pretrained(
             base_model,
-            load_in_8bit=True,
+            load_in_8bit=False,
             torch_dtype=torch.float16,
             device_map="auto",
         )
@@ -41,6 +41,7 @@ def load_model(
     model.config.bos_token_id = 1
     model.config.eos_token_id = 2
 
+    model.half()
     model.eval()
     model = torch.compile(model)
 
@@ -75,6 +76,4 @@ def generate_response(input: str):
     
     s = generation_output.sequences[0]
     output = tokenizer.decode(s)
-
-    return prompter.get_response(output)
-
+    yield prompter.get_response(output)
