@@ -136,7 +136,7 @@ def main():
     DEVICE = setup_device()
 
     model, tokenizer = setup_model(Configuration.MODEL_PATH)
-    train_data, val_data = prepare_datasets(data_path="/content/drive/MyDrive/repo/LLM-Sentimental-Analysis/data/alpaca-news-sentiment-dataset.csv", tokenizer=tokenizer)
+    train_data, val_data = prepare_datasets(data_path="/content/drive/MyDrive/repo/LLM-Sentimental-Analysis/data/alpaca-tweets-sentiment-dataset.csv", tokenizer=tokenizer)
 
     model = setup_peft_model(model)
     training_arguments = setup_training_arguments()
